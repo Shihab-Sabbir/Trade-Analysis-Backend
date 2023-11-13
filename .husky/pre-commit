@@ -1,0 +1,12 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+yarn lint_format:check
+
+# this mean that before commit it will run lint:check then format(preetier code format) check and analysis if there is any error in code or format issue. 
+
+
+# lint: check error in code.
+# preetire: check and resolve code format.
+# Husky: run the lint and preetier check before commit.
+# lint-stage: this will help to use lint in limited environments/files (ex: .ts). other wise lint will check whole project. it might slow the checking process. 
