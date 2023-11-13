@@ -6,38 +6,39 @@ import {
   createBusinessHealthDataZodSchema,
   updateBusinessHealthZodSchema,
 } from './data.validation';
+import { ENUM_USER_ROLE } from '../../../shared/enums/user';
 
 const businessHealthRoutes = express.Router();
 
 businessHealthRoutes.get(
   '/',
-  auth(),
+  auth(ENUM_USER_ROLE.USER),
   BusinessHealthController.getBusinessHealths
 );
 
 businessHealthRoutes.get(
   '/:id',
-  auth(),
+  auth(ENUM_USER_ROLE.USER),
   BusinessHealthController.getBusinessHealth
 );
 
 businessHealthRoutes.post(
   '/',
-  auth(),
+  auth(ENUM_USER_ROLE.USER),
   validateRequest(createBusinessHealthDataZodSchema),
   BusinessHealthController.createBusinessHealth
 );
 
 businessHealthRoutes.patch(
   '/:id',
-  auth(),
+  auth(ENUM_USER_ROLE.USER),
   validateRequest(updateBusinessHealthZodSchema),
   BusinessHealthController.updateBusinessHealth
 );
 
 businessHealthRoutes.delete(
   '/:id',
-  auth(),
+  auth(ENUM_USER_ROLE.USER),
   BusinessHealthController.deleteBusinessHealth
 );
 
