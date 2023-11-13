@@ -5,6 +5,7 @@ export const businessHealthService = {
     const { assets, income, expenses, debts } = data;
     const health =
       Number(assets) + Number(income) - Number(expenses) - Number(debts);
+      console.log({health})
     return health;
   },
 };
